@@ -2,13 +2,14 @@ import { useUrls } from '@/lib/hooks/useUrls'
 import React from 'react'
 
 function UrlsList() {
-  const { data } = useUrls()
+  const { data, isLoading } = useUrls()
   const host = typeof window !== 'undefined' && window.location.host
   const protocol = typeof window !== 'undefined' && window.location.protocol
 
   return (
     <div className="mt-6 border-t border-slate-600 w-full pt-3">
       <h3 className="text-lg font-bold">URLs</h3>
+      {isLoading && <p className="text-sm animate-pulse">Loading...</p>}
       <ul>
         {data?.map((item) => {
           const url = `${protocol}//${host}/${item.shortUrl}`

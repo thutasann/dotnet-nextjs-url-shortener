@@ -1,5 +1,4 @@
 import Container from '@/components/customs/Container'
-import Loader from '@/components/customs/Loader'
 import UrlShortForm from '@/components/customs/UrlShortForm'
 import UrlsList from '@/components/customs/UrlsList'
 import Head from 'next/head'
