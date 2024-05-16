@@ -1,6 +1,17 @@
-# DOTNET URL Shortener
+# .NET Core & Nextjs URL Shortener
 
 This is the mini URL Shortener FullStack app with .NET Core and Nextjs.
+
+![Demo](./examples/demo.png)
+
+## Tech Stacks
+
+- .NET Core
+- EF Core
+- MySQL
+- Nextjs
+- TanStack Query
+- ShadcnUI
 
 ## Scripts
 

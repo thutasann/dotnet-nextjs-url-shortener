@@ -3,7 +3,7 @@ import { IUrls } from '@/types/urls.interface'
 import { useQuery } from '@tanstack/react-query'
 
 export const useUrls = () => {
-  const { data, isLoading, refetch } = useQuery<Array<IUrls>>({
+  const { data, isLoading, refetch, status } = useQuery<Array<IUrls>>({
     queryKey: ['urls'],
     queryFn: async () => {
       const response = await axiosInstance.get('/shorturl')
@@ -16,5 +16,6 @@ export const useUrls = () => {
     data,
     isLoading,
     refetch,
+    status,
   }
 }

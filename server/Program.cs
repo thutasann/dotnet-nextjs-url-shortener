@@ -32,6 +32,19 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.MapFallback(async (AppDbContext _db, HttpContext ctx) =>
+{
+    var path = ctx.Request.Path.ToUriComponent().Trim('/');
+    var urlMatch = await _db.Urls.FirstOrDefaultAsync(u => u.ShortUrl.Trim() == path.Trim());
+
+    if (urlMatch == null)
+    {
+        return Results.BadRequest("Invalid short url");
+    }
+
+    return Results.Redirect(urlMatch.Url);
+});
+
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseCors("myAppCors");
