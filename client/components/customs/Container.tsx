@@ -8,7 +8,7 @@ interface IContainer {
  * Simple Container Wrapper
  */
 function Container({ children }: IContainer) {
-  return <div className="flex flex-col items-center justify-center p-3">{children}</div>
+  return <div className="flex flex-col items-center justify-center p-7">{children}</div>
 }
 
 export default Container

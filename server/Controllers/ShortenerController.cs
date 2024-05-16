@@ -22,7 +22,7 @@ namespace server.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<UrlShortResponseDto>> ShortUrl([FromForm] UrlDto urlDto)
+        public async Task<ActionResult<UrlShortResponseDto>> ShortUrl([FromBody] UrlDto urlDto)
         {
             try
             {
