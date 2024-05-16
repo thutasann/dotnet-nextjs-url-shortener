@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Bcpg;
 using server.Data;
 using server.Dto;
 using server.Models;
@@ -11,6 +13,13 @@ namespace server.Controllers
     {
         private readonly AppDbContext _db = appDbContext;
         private readonly IHttpContextAccessor _ctx = ctx;
+
+        [HttpGet]
+        public async Task<ActionResult<UrlManagement>> GetAllUrls()
+        {
+            var urls = await _db.Urls.ToListAsync();
+            return Ok(urls);
+        }
 
         [HttpPost]
         public async Task<ActionResult<UrlShortResponseDto>> ShortUrl([FromForm] UrlDto urlDto)

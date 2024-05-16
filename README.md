@@ -1,5 +1,7 @@
 # DOTNET URL Shortener
 
+This is the mini URL Shortener FullStack app with .NET Core and Nextjs.
+
 ## Scripts
 
 ### Dotnet Create Minimal Web API
