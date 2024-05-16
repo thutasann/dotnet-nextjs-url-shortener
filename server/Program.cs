@@ -1,9 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using server.Controllers;
 using server.Data;
-using server.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// http context
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -15,10 +19,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 var app = builder.Build();
 
-app.UseMiddleware<ResponseTimeMiddleware>();
-
 app.UseSwagger();
 app.UseSwaggerUI();
-
 app.UseHttpsRedirection();
+app.MapControllers();
 app.Run();
